@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%=f.collection_select(:category_id, Category.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :img %><br>
     <%= f.file_field :img %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
   </div>
   <div class="actions">
     <%= f.submit %>

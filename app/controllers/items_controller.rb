@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.order(:name).page params[:page]
   end
 
   # GET /items/1
@@ -69,6 +69,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :category_id, :status, :img)
+      params.require(:item).permit(:name, :category_id, :status, :img, :price)
     end
 end
